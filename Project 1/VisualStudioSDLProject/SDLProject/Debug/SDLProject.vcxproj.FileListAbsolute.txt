@@ -1,0 +1,4 @@
+C:\Users\User\Desktop\Game Programming\CS3113\Workspace\VisualStudioSDLProject\SDLProject\Debug\SDLProject.exe
+C:\Users\User\Desktop\Game Programming\CS3113\Workspace\VisualStudioSDLProject\SDLProject\Debug\SDLProject.pdb
+C:\Users\User\Desktop\Game Programming\Game-Projects-in-CPP\Project 1\VisualStudioSDLProject\SDLProject\Debug\SDLProject.exe
+C:\Users\User\Desktop\Game Programming\Game-Projects-in-CPP\Project 1\VisualStudioSDLProject\SDLProject\Debug\SDLProject.pdb
