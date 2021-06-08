@@ -4,3 +4,5 @@ C:\Users\User\Desktop\Game Programming\Game-Projects-in-CPP\Project 1\VisualStud
 C:\Users\User\Desktop\Game Programming\Game-Projects-in-CPP\Project 1\VisualStudioSDLProject\SDLProject\Debug\SDLProject.pdb
 C:\Users\User\Desktop\Game Programming\Game-Projects-in-CPP\Project 1\Debug\SDLProject.exe
 C:\Users\User\Desktop\Game Programming\Game-Projects-in-CPP\Project 1\Debug\SDLProject.pdb
+C:\Users\User\Desktop\Game Programming\Game-Projects-in-CPP\Project-1\Debug\SDLProject.exe
+C:\Users\User\Desktop\Game Programming\Game-Projects-in-CPP\Project-1\Debug\SDLProject.pdb
