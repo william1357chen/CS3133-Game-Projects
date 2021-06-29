@@ -1,0 +1,4 @@
+﻿  Entity.cpp
+C:\Users\User\Desktop\Game Programming\Game-Projects-in-CPP\Project-3\Entity.cpp(43,37): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\User\Desktop\Game Programming\Game-Projects-in-CPP\Project-3\Entity.cpp(103,23): warning C4018: '<': signed/unsigned mismatch
+  SDLProject.vcxproj -> C:\Users\User\Desktop\Game Programming\Game-Projects-in-CPP\Project-3\Debug\SDLProject.exe
