@@ -24,7 +24,15 @@ public:
     EntityType entityType;
     AIType aiType;
     AIState aiState;
-
+    
+    // for koopa paratroopa
+    glm::vec3 startPosition;
+    
+    std::string text;
+    bool complete = false;
+    bool end = false;
+    int lives;
+    
     glm::vec3 position;
     glm::vec3 movement;
     glm::vec3 acceleration;
@@ -34,8 +42,10 @@ public:
     float width = 1;
     float height = 1;
 
+    // for jumping
     bool jump = false;
-    float jumpPower = 0;
+    float airTime = 0;
+    bool spaceOn = false;
 
     GLuint textureID;
     
@@ -62,8 +72,6 @@ public:
     bool collidedBottom = false;
     bool collidedLeft = false;
     bool collidedRight = false;
-    
-    std::string text;
     
     Entity();
     void CheckCollisionsY(Entity* objects, int objectCount);

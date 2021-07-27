@@ -3,7 +3,8 @@
 #ifdef _WINDOWS
 #include <GL/glew.h>
 #endif
-#define GL_GLEXT_PROTOTYPES 1 #include <vector>
+#define GL_GLEXT_PROTOTYPES 1
+#include <vector>
 #include <math.h>
 #include <SDL.h>
 #include <SDL_opengl.h>
@@ -30,5 +31,5 @@ class Map {
     Map(int width, int height, unsigned int *levelData, GLuint textureID, float tile_size, int
     tile_count_x, int tile_count_y); void Build();
     void Render(ShaderProgram *program);
-    bool IsSolid(glm::vec3 position, float *penetration_x, float *penetration_y);
+    bool IsSolid(glm::vec3 position, float *penetration_x, float *penetration_y, int* pole);
 };

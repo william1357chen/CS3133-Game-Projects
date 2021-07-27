@@ -1,6 +1,14 @@
 
 
 #include "Map.h"
+
+#define COLLIDING_BLOCKS 13
+
+unsigned int collidingBlocks[13] =
+{
+    4, 5, 6, 7, 12, 13, 23, 31, 39, 47, 55, 62, 63
+};
+
 Map::Map(int width, int height, unsigned int *levelData, GLuint textureID, float tile_size, int tile_count_x, int tile_count_y)
 {
     this->width = width;
@@ -67,7 +75,7 @@ void Map::Render(ShaderProgram *program)
 }
 
 
-bool Map::IsSolid(glm::vec3 position, float *penetration_x, float *penetration_y)
+bool Map::IsSolid(glm::vec3 position, float *penetration_x, float *penetration_y, int* pole)
 {
     *penetration_x = 0;
     *penetration_y = 0;
@@ -78,11 +86,19 @@ bool Map::IsSolid(glm::vec3 position, float *penetration_x, float *penetration_y
     if (tile_x < 0 || tile_x >= width) return false;
     if (tile_y < 0 || tile_y >= height) return false;
     
-    if (tile_x == 12 && tile_y == 12)
-        std::cerr << "WTH";
-    
     int tile = levelData[tile_y * width + tile_x];
-    if (tile == 0) return false;
+    
+    bool if_solid = false;
+    for (int i = 0; i < COLLIDING_BLOCKS; i++){
+        if (tile == collidingBlocks[i]){
+            if_solid = true;
+            if (tile == 31 || tile == 39 || tile == 47 || tile == 55)
+                *pole = 1;
+            break;
+        }
+    }
+    if (if_solid == false) return false;
+    
     float tile_center_x = (tile_x * tile_size);
     float tile_center_y = -(tile_y * tile_size);
     *penetration_x = (tile_size / 2) - fabs(position.x - tile_center_x);

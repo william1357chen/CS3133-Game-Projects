@@ -1,5 +1,5 @@
 #include "Scene.h"
-class Level2 : public Scene {
+class Game_Over : public Scene {
 public:
     void Initialize(int lives) override;
     void Update(float deltaTime) override;
