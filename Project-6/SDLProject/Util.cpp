@@ -64,6 +64,22 @@ void Util::DrawText(ShaderProgram *program, GLuint fontTexture, std::string text
     glDisableVertexAttribArray(program->texCoordAttribute);
 }
 
+void Util::DrawUIBar(ShaderProgram* program, GLuint textureID){
+    float vertices[] = { -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5 };
+    float texCoords[] = { 0.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0 };
+    
+    glVertexAttribPointer(program->positionAttribute, 2, GL_FLOAT, false, 0, vertices);
+    glEnableVertexAttribArray(program->positionAttribute);
+    glVertexAttribPointer(program->positionAttribute, 2, GL_FLOAT, false, 0, texCoords);
+    glEnableVertexAttribArray(program->texCoordAttribute);
+    
+    glBindTexture(GL_TEXTURE_2D, textureID);
+    glDrawArrays(GL_TRIANGLES, 0, 6);
+    
+    glDisableVertexAttribArray(program->positionAttribute);
+    glDisableVertexAttribArray(program->positionAttribute);
+}
+
 unsigned int* Util::LoadMapArray(const char* filePath, int width, int height){
     std::ifstream ifs(filePath);
     if (!ifs){

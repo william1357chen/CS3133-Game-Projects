@@ -14,15 +14,18 @@
 #include "Entity.h"
 #include "Map.h"
 
+
 struct GameState {
     Map* map = NULL;
     Entity* player;
     Entity* enemies;
+    int enemiesAlive;
     Entity* message;
     Mix_Chunk** soundEffects;
     glm::mat4 viewMatrix = glm::mat4(1.0f);
     bool gameIsRunning = true;
     int nextScene;
+
 };
 
 class Scene {

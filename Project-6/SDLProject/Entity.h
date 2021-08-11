@@ -14,9 +14,9 @@
 #include "Map.h"
 #include <string>
 
-enum EntityType {PLAYER, ENEMY, PLATFORM, TEXT};
-enum AIType {};
-enum AIState {IDLE, WALKING, FOLLOWING, FLYING};
+enum EntityType {PLAYER, ENEMY, PLATFORM, TEXT, WEAPON};
+enum AIType {OCTOROK, WIZARD, FIRE, ROOM, SWORD};
+enum AIState {IDLE, WALKING, FOLLOWING};
 
 class Entity {
 public:
@@ -25,17 +25,22 @@ public:
     AIType aiType;
     AIState aiState;
     
-    // for koopa paratroopa
+    Entity* weapon = NULL;
+    bool armed = false;
+    bool attacking = false;
+    bool visited = false;
+    
     glm::vec3 startPosition;
     
     std::string text;
     bool complete = false;
-    bool end = false;
+    bool room = false;
     int lives;
+    
+    bool hurt = false;
     
     glm::vec3 position;
     glm::vec3 velocity;
-    float speed;
 
     float width = 1;
     float height = 1;
@@ -48,6 +53,12 @@ public:
     int *animLeft = NULL;
     int *animUp = NULL;
     int *animDown = NULL;
+    
+    // attack
+    int *animAttackRight = NULL;
+    int *animAttackLeft = NULL;
+    int *animAttackUp = NULL;
+    int *animAttackDown = NULL;
 
     int *animIndices = NULL;
     int animFrames = 0;
@@ -78,5 +89,8 @@ public:
     
     void Player(float deltaTime, Entity* enemies, int enemyCount, Map* map);
 
-    void AI(float deltaTime, Entity* player, Map* map);
+    void AI(float deltaTime, Entity* player, Entity* enemies, int enemyCount, Map* map);
+    void ChangeDirection();
+    
+    void Weapon(float deltaTime, Entity* player, Entity* enemies, int enemyCount, Map* map);
 };

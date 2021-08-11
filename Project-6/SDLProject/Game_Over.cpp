@@ -44,7 +44,7 @@ void Game_Over::ProcessInput(){
             case SDL_KEYDOWN:
                 switch (event.key.keysym.sym) {
                     case SDLK_RETURN:
-                        //TODO
+                        state.nextScene = 0;
                     default:
                     break;
                 }

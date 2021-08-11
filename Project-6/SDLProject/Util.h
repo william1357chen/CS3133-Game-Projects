@@ -16,4 +16,5 @@ public:
     static void DrawText(ShaderProgram *program, GLuint fontTextureID, std::string
     text, float size, float spacing, glm::vec3 position);
     static unsigned int* LoadMapArray(const char* filePath, int width, int height);
+    static void DrawUIBar(ShaderProgram* program, GLuint textureID);
 };

@@ -10,11 +10,11 @@ void Start_Menu::Initialize(int lives){
     
     GLuint fontTextureID = Util::LoadTexture("font.png");
     state.message = new Entity[MESSAGE_COUNT];
-    state.message[0].text = "Super Mario Bros!";
+    state.message[0].text = "The Legend of Zelda";
     state.message[0].entityType = TEXT;
     state.message[0].textureID = fontTextureID;
-    state.message[0].position = glm::vec3(-8, 1, 0);
-    state.message[0].width = 1.25f;
+    state.message[0].position = glm::vec3(-7.25, 1, 0);
+    state.message[0].width = 1.0f;
     state.message[0].Update(0, nullptr, nullptr, 0, 0);
     
     state.message[1].text = "Press Enter to Start";
@@ -36,7 +36,7 @@ void Start_Menu::ProcessInput(){
             case SDL_KEYDOWN:
                 switch (event.key.keysym.sym) {
                     case SDLK_RETURN:
-                        //TODO
+                        state.nextScene = 1;
                     default:
                     break;
                 }

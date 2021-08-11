@@ -75,7 +75,7 @@ void Map::Render(ShaderProgram *program)
 }
 
 
-bool Map::IsSolid(glm::vec3 position, float *penetration_x, float *penetration_y)
+bool Map::IsSolid(glm::vec3 position, float *penetration_x, float *penetration_y, bool enemy, bool& room)
 {
     *penetration_x = 0;
     *penetration_y = 0;
@@ -91,6 +91,11 @@ bool Map::IsSolid(glm::vec3 position, float *penetration_x, float *penetration_y
     
     int tile = levelData[tile_y * width + tile_x];
     if (tile == 0) return false;
+    if (tile == 11 && enemy != true) return false;
+    if (tile == 12 && enemy != true){
+        room = true;
+        return false;
+    }
     
     float tile_center_x = (tile_x * tile_size);
     float tile_center_y = -(tile_y * tile_size);
